@@ -1,8 +1,10 @@
 # PediaMetric
 
+[![Core CI](https://github.com/deyvidmathias/PediaMetric/actions/workflows/core-ci.yml/badge.svg)](https://github.com/deyvidmathias/PediaMetric/actions/workflows/core-ci.yml)
+
 Aplicação web de antropometria pediátrica baseada nas referências oficiais WHO Child Growth Standards 2006 e WHO Growth Reference 2007. O cálculo acontece localmente no navegador: não há conta, backend, telemetria clínica ou persistência automática das medidas informadas.
 
-**Aplicação publicada:** [pediametric.netlify.app](https://pediametric.netlify.app/)
+**Aplicação publicada:** [pediametric.netlify.app](https://pediametric.netlify.app/) · **Release atual:** [v0.1.0](https://github.com/deyvidmathias/PediaMetric/releases/tag/v0.1.0)
 
 ## Interface
 

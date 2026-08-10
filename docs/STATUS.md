@@ -16,7 +16,9 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 - direção visual aprovada e logo PediaMetric fornecida;
 - documentação operacional do produto criada;
 - aplicação pública em `https://pediametric.netlify.app/`;
-- screenshots desktop e mobile versionados em `docs/screenshots/`.
+- screenshots desktop e mobile versionados em `docs/screenshots/`;
+- release pública `v0.1.0` criada no GitHub;
+- Core CI aprovado em Node.js 22 e 24.
 
 ## Concluído neste marco
 
@@ -33,7 +35,7 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 1. Manter a validação visual e funcional a cada alteração relevante da Web.
 2. Acompanhar o CI e os alertas de segurança do repositório público.
 3. Confirmar propriedade do escopo npm `@pediametric` antes de eventual publicação.
-4. Coletar feedback de usuários e preparar uma primeira release estável.
+4. Coletar feedback de usuários para orientar os próximos marcos.
 
 ## Restrições
 
@@ -67,4 +69,5 @@ O marco técnico e a publicação inicial da Web foram concluídos: preparação
 dados, auditoria pública, `pnpm run verify`, `pnpm run build` e
 `pnpm run verify:core` passam, o histórico público não contém arquivos WHO e a
 interface está disponível no Netlify. Publicar npm continua sendo uma ação
-separada.
+separada. A release `v0.1.0` aponta para um commit aprovado pelo Core CI em
+Node.js 22 e 24.
