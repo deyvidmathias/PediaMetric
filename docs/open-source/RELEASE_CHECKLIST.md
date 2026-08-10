@@ -42,7 +42,7 @@ Este checklist separa a publicação do código no GitHub de uma futura publica�
 - [ ] Existe canal privado de reporte de vulnerabilidades.
 - [x] `SECURITY.md`, `CONTRIBUTING.md` e política candidata de versões estão presentes.
 - [x] CI localmente preparada usa somente `contents: read`, sem segredos ou publicação.
-- [ ] Referências de actions foram fixadas em SHAs completos antes de ativar o repositório público.
+- [x] Referências de actions foram fixadas em SHAs completos antes de ativar o repositório público.
 - [ ] CI foi executada e aprovada no futuro repositório remoto.
 - [ ] Proprietários, frequência de manutenção e processo de release foram definidos.
 
