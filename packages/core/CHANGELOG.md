@@ -8,6 +8,8 @@ All notable changes to `@pediametric/core` will be documented in this file. Sema
 - Add English and Brazilian Portuguese package documentation.
 - Add contribution and security guidance for a future public repository.
 - Add a checked snapshot of the public JavaScript runtime exports.
+- Add provider-backed growth-curve models for Z scores from -3 through +3.
+- Return an explicit unavailable result for head circumference after WHO 2006.
 
 ## 0.1.0-local - 2026-08-09
 

@@ -74,6 +74,42 @@ export interface AnthropometricResult {
   validity: ResultValidity;
 }
 
+export type GrowthChartIndicator =
+  | "WEIGHT_FOR_AGE"
+  | "HEIGHT_FOR_AGE"
+  | "BMI_FOR_AGE"
+  | "HEAD_CIRCUMFERENCE_FOR_AGE";
+
+export type GrowthChartZScore = -3 | -2 | -1 | 0 | 1 | 2 | 3;
+
+export interface GrowthChartPoint {
+  ageMonths: number;
+  measurement: number;
+}
+
+export interface GrowthChartCurve {
+  zScore: GrowthChartZScore;
+  points: readonly GrowthChartPoint[];
+}
+
+export interface GrowthChartMarker {
+  ageMonths: number;
+  measurement: number;
+  zScore: number;
+  percentile: number;
+  biologicallyImplausible: boolean;
+}
+
+export interface GrowthChartModel {
+  indicator: GrowthChartIndicator;
+  reference: Reference;
+  sex: Sex;
+  measurementUnit: AnthropometricResult["measurementUnit"];
+  curves: readonly GrowthChartCurve[];
+  marker: GrowthChartMarker | null;
+  unavailableReason: string | null;
+}
+
 export interface AnthropometryAssessment {
   age: ExactAge | null;
   reference: Reference | null;

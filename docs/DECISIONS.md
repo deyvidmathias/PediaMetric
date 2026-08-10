@@ -37,3 +37,11 @@ documentação originais. WHO Data, fontes originais e JSONs derivados ficam for
 do Git e não são sublicenciados sob MIT; o usuário os prepara localmente a
 partir das fontes oficiais verificadas. O pacote npm permanece privado até uma
 autorização de publicação separada.
+
+## 2026-08-10 — Curvas clínicas calculadas pelo Core
+
+Os gráficos principais usam peso/idade, comprimento-altura/idade, perímetro
+cefálico/idade e IMC/idade, com curvas explícitas de `Z=-3` a `Z=+3`. O Core
+transforma LMS em séries e marcador clínico sem arredondamento; a Web apenas
+converte esses pontos em coordenadas e apresentação. `Z=0` recebe destaque
+visual, sem tratar cor como diagnóstico universal.

@@ -60,3 +60,18 @@ test("comprimento deitado não é convertido no WHO 2007", () => {
   assert.equal(height.validity.valid, false);
 });
 
+test("perímetro cefálico após 60 meses retorna indisponibilidade explícita", () => {
+  const assessment = assessAnthropometry({
+    sex: "female",
+    birthDate: "2018-01-01",
+    assessmentDate: "2026-08-09",
+    headCircumferenceCm: 52
+  });
+  const result = assessment.results.find(
+    (item) => item.indicator === "HEAD_CIRCUMFERENCE_FOR_AGE"
+  );
+  assert.ok(result);
+  assert.equal(result.zScore, null);
+  assert.match(result.validity.errors[0] ?? "", /WHO 2006.*60/);
+});
+

@@ -13,10 +13,11 @@ The Core provides:
 - exact age and reference selection;
 - BMI and stature-position adjustment;
 - LMS Z-scores and percentiles;
+- chart-ready Z-score growth-curve models;
 - classifications and plausibility handling;
 - complete assessments through an injected `LmsDatasetProvider`.
 
-It does not depend on React, the DOM, CSS, charts, network access, persistent storage, or a concrete data source.
+It does not depend on React, the DOM, CSS, charting libraries, network access, persistent storage, or a concrete data source.
 
 ## WHO data is not included
 

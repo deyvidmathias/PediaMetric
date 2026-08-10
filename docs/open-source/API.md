@@ -21,6 +21,20 @@ const result = assess(input);
 
 Retorna `"length"` antes de 731 dias e `"height"` a partir daí.
 
+## Curvas de crescimento
+
+### `createGrowthChartModelWithProvider(result, provider)`
+
+Recebe um `AnthropometricResult` e um `LmsDatasetProvider`; devolve um modelo
+independente de interface para peso/idade, comprimento-altura/idade,
+perímetro cefálico/idade ou IMC/idade. O Core calcula sete curvas (`Z=-3` até
+`Z=+3`) com os mesmos parâmetros LMS da avaliação e preserva o marcador da
+criança sem arredondamento. Indicadores fora desse conjunto devolvem `null`.
+
+A função não desenha SVG, não escolhe cores e não depende de biblioteca de
+gráficos. O consumidor é responsável apenas por transformar os pontos já
+calculados em coordenadas visuais.
+
 ## Idade e referência
 
 - `calculateExactAge(birthDate, assessmentDate): ExactAge` — aceita `YYYY-MM-DD` ou `Date`, usa datas civis UTC e rejeita avaliação anterior ao nascimento.
@@ -49,6 +63,7 @@ Entradas não finitas, medidas não positivas ou valores fora do domínio podem 
 `core.ts` reexporta todos os tipos de `types.ts`, incluindo:
 
 - entradas e saídas: `AnthropometryInput`, `AnthropometryAssessment`, `AnthropometricResult`;
+- gráficos: `GrowthChartModel`, `GrowthChartCurve`, `GrowthChartPoint`, `GrowthChartMarker`, `GrowthChartIndicator`;
 - domínio: `Sex`, `Reference`, `Indicator`, `MeasurementPosition`;
 - validade e interpretação: `Classification`, `ResultValidity`;
 - dados LMS: `LmsTuple`, `LmsParameters`, `LmsDataset`, `LmsDatasetProvider`;

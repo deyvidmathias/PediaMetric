@@ -59,6 +59,19 @@ Capturas de referência devem ser atualizadas apenas quando a mudança visual fo
 Este registro é um smoke visual direcionado e não substitui a passagem completa
 em todas as larguras listadas acima nem a avaliação clínica de ponta a ponta.
 
+#### Registro das curvas — 2026-08-10
+
+- avaliação sintética completa executada localmente com peso, estatura, perímetro cefálico e IMC;
+- sete curvas conferidas (`Z=-3` a `Z=+3`), com `Z=0` destacado e marcador real;
+- abas dos quatro indicadores, resumo textual e mudança de indicador conferidos;
+- layout validado em 1440 × 1000 px e 360 × 800 px sem rolagem horizontal da página;
+- em 360 px, o SVG mantém rolagem interna para preservar legibilidade dos eixos;
+- nenhum erro ou aviso registrado no console;
+- referência visual salva em `docs/screenshots/pediametric-growth-chart.png`.
+
+O smoke confirma a apresentação e a integração local; a publicação do Netlify
+permanece fora deste marco até autorização explícita.
+
 ### 6. Desempenho
 
 Metas iniciais de auditoria: desempenho e acessibilidade iguais ou superiores a 90 em ambiente controlado, LCP abaixo de 2,5 s e CLS abaixo de 0,1. Tratar como metas, não garantias universais. Conferir tamanho do bundle, carregamento sob demanda de dados/gráficos, ausência de trabalho contínuo e animações baseadas em `transform`/`opacity`.

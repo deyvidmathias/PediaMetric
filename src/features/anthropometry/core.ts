@@ -6,6 +6,7 @@ export {
 export { calculateExactAge, selectReference, DAYS_PER_MONTH } from "./engine/age.ts";
 export { calculateBmi } from "./engine/bmi.ts";
 export { classify } from "./engine/classifications.ts";
+export { createGrowthChartModelWithProvider } from "./engine/growthChart.ts";
 export {
   lmsZScore,
   measurementAtZ,

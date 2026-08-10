@@ -6,6 +6,7 @@
   "calculateExactAge",
   "classify",
   "createAnthropometryAssessment",
+  "createGrowthChartModelWithProvider",
   "expectedPositionForAge",
   "findExactTuple",
   "interpolateParametersByKey",

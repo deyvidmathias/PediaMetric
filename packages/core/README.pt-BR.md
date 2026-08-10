@@ -13,10 +13,11 @@ O Core oferece:
 - idade exata e seleção de referência;
 - IMC e ajuste de posição da estatura;
 - escores Z por LMS e percentis;
+- modelos de curvas de crescimento por escore Z prontos para renderização;
 - classificações e tratamento de plausibilidade;
 - avaliações completas por meio de um `LmsDatasetProvider` injetado.
 
-Ele não depende de React, DOM, CSS, gráficos, rede, armazenamento persistente ou fonte concreta de dados.
+Ele não depende de React, DOM, CSS, bibliotecas de gráficos, rede, armazenamento persistente ou fonte concreta de dados.
 
 ## Dados WHO não incluídos
 

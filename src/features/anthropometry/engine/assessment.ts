@@ -230,11 +230,17 @@ function buildRequests(
       ...(weightReason ? { invalidReason: weightReason } : {})
     });
   }
-  if (reference === "WHO_2006" && input.headCircumferenceCm !== undefined) {
+  if (input.headCircumferenceCm !== undefined) {
     requests.push({
       indicator: "HEAD_CIRCUMFERENCE_FOR_AGE",
       measurement: input.headCircumferenceCm,
-      unit: "cm"
+      unit: "cm",
+      ...(reference === "WHO_2007"
+        ? {
+            invalidReason:
+              "Perímetro cefálico/idade é suportado somente pela referência WHO 2006 até o fim do 60º mês."
+          }
+        : {})
     });
   }
   if (reference === "WHO_2006" && input.armCircumferenceCm !== undefined) {

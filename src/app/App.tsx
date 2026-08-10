@@ -28,9 +28,11 @@ import type {
   AnthropometricResult,
   AnthropometryAssessment,
   AnthropometryInput,
+  GrowthChartModel,
   Indicator,
   Sex
 } from "../features/anthropometry/index.ts";
+import { GrowthCharts } from "../features/charts/GrowthCharts.tsx";
 
 type FormState = {
   sex: Sex | "";
@@ -253,9 +255,11 @@ function ResultCard({ result, index }: { result: AnthropometricResult; index: nu
 
 function ResultsPanel({
   assessment,
+  chartModels,
   onReset
 }: {
   assessment: AnthropometryAssessment | null;
+  chartModels: readonly GrowthChartModel[];
   onReset: () => void;
 }) {
   if (!assessment) {
@@ -337,6 +341,8 @@ function ResultsPanel({
         ))}
       </div>
 
+      <GrowthCharts models={chartModels} />
+
       <ZScoreMap results={assessment.results} />
 
       <p className="clinical-note">
@@ -353,6 +359,7 @@ export function App() {
   const [step, setStep] = useState<1 | 2>(1);
   const [showOptional, setShowOptional] = useState(false);
   const [assessment, setAssessment] = useState<AnthropometryAssessment | null>(null);
+  const [chartModels, setChartModels] = useState<GrowthChartModel[]>([]);
   const [isCalculating, setIsCalculating] = useState(false);
   const [formError, setFormError] = useState("");
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -395,9 +402,22 @@ export function App() {
     }
     try {
       setIsCalculating(true);
-      const { assessAnthropometry } = await import("../features/anthropometry/index.ts");
+      const { assessAnthropometry, createGrowthChartModel } = await import("../features/anthropometry/index.ts");
       const nextAssessment = assessAnthropometry(buildInput(form));
+      const chartOrder: Readonly<Record<string, number>> = {
+        WEIGHT_FOR_AGE: 0,
+        HEIGHT_FOR_AGE: 1,
+        HEAD_CIRCUMFERENCE_FOR_AGE: 2,
+        BMI_FOR_AGE: 3
+      };
+      const nextChartModels = nextAssessment.results
+        .map(createGrowthChartModel)
+        .filter((model): model is GrowthChartModel => model !== null)
+        .sort((first, second) =>
+          (chartOrder[first.indicator] ?? 99) - (chartOrder[second.indicator] ?? 99)
+        );
       setAssessment(nextAssessment);
+      setChartModels(nextChartModels);
       setFormError("");
       window.setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
     } catch (error) {
@@ -410,6 +430,7 @@ export function App() {
   const reset = () => {
     setForm({ ...EMPTY_FORM, assessmentDate: new Date().toISOString().slice(0, 10) });
     setAssessment(null);
+    setChartModels([]);
     setStep(1);
     setFormError("");
     document.getElementById("avaliacao")?.scrollIntoView({ behavior: "smooth" });
@@ -626,7 +647,7 @@ export function App() {
             </div>
 
             <div ref={resultsRef} className="results-anchor">
-              <ResultsPanel assessment={assessment} onReset={reset} />
+              <ResultsPanel assessment={assessment} chartModels={chartModels} onReset={reset} />
             </div>
           </div>
         </section>

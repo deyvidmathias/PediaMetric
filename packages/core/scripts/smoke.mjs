@@ -1,12 +1,13 @@
 import assert from "node:assert/strict";
 import {
   calculateBmi,
-  createAnthropometryAssessment
+  createAnthropometryAssessment,
+  createGrowthChartModelWithProvider
 } from "@pediametric/core";
 
 assert.equal(calculateBmi(18, 120), 12.5);
 
-const assess = createAnthropometryAssessment({
+const provider = {
   getDataset(reference, indicator) {
     if (reference !== "WHO_2006" || indicator !== "WEIGHT_FOR_AGE") return undefined;
     return {
@@ -17,7 +18,9 @@ const assess = createAnthropometryAssessment({
       female: [[0, 1, 3.2, 0.1]]
     };
   }
-});
+};
+
+const assess = createAnthropometryAssessment(provider);
 
 const result = assess({
   sex: "female",
@@ -29,5 +32,10 @@ const result = assess({
 assert.equal(result.validity.valid, true);
 assert.equal(result.results[0]?.indicator, "WEIGHT_FOR_AGE");
 assert.ok(Math.abs(result.results[0]?.zScore ?? Number.NaN) < 1e-12);
+
+const chart = createGrowthChartModelWithProvider(result.results[0], provider);
+
+assert.deepEqual(chart?.curves.map((curve) => curve.zScore), [-3, -2, -1, 0, 1, 2, 3]);
+assert.equal(chart?.marker?.measurement, 3.2);
 
 console.log("Core package smoke test passed.");

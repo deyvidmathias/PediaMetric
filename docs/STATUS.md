@@ -12,11 +12,11 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 - motor TypeScript puro com idade, IMC, LMS, Z-score, percentil, classificações e plausibilidade;
 - referências WHO 2006 e 2007 baixadas sob demanda, manifesto e importação local reproduzível;
 - documentação de fontes, decisões clínicas e validação em `docs/anthropometry/`;
-- 29 testes automatizados aprovados antes deste fechamento;
+- 34 testes automatizados aprovados neste marco;
 - direção visual aprovada e logo PediaMetric fornecida;
 - documentação operacional do produto criada;
 - aplicação pública em `https://pediametric.netlify.app/`;
-- screenshots desktop e mobile versionados em `docs/screenshots/`;
+- screenshots desktop, mobile e das curvas versionados em `docs/screenshots/`;
 - release pública `v0.1.0` criada no GitHub;
 - Core CI aprovado em Node.js 22 e 24.
 
@@ -27,8 +27,10 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 3. Fronteiras Core/Data/Web protegidas por testes automatizados.
 4. Aplicação React/Vite criada sem backend, persistência ou recursos externos.
 5. Fluxo `Dados → Medidas → Resultados`, medidas complementares e alertas integrados.
-6. Resultados e mapa visual de escores Z consumindo exclusivamente a API pública.
+6. Resultados, mapa visual de escores Z e curvas de crescimento consumindo exclusivamente a API pública.
 7. Logo, identidade tecnológica, movimentos e layouts responsivos implementados.
+8. Gráficos de peso, comprimento-altura, perímetro cefálico e IMC com curvas de `Z=-3` a `Z=+3` e marcador da criança.
+9. Perímetro cefálico após 60 meses retorna indisponibilidade explícita em vez de desaparecer silenciosamente.
 
 ## Próximos marcos
 
@@ -36,6 +38,7 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 2. Acompanhar o CI e os alertas de segurança do repositório público.
 3. Confirmar propriedade do escopo npm `@pediametric` antes de eventual publicação.
 4. Coletar feedback de usuários para orientar os próximos marcos.
+5. Publicar a atualização dos gráficos no GitHub e no Netlify somente após autorização explícita.
 
 ## Restrições
 
@@ -52,14 +55,14 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 - licença MIT limitada ao código e documentação do pacote;
 - build a partir da fonte canônica, sem cópia de código;
 - smoke test por self-import e inspeção automática contra Web, rede e WHO Data;
-- dry-run com 25 entradas, 11.785 bytes compactados e nenhum JSON/dataset;
+- dry-run com 27 entradas, 13.030 bytes compactados e nenhum JSON/dataset;
 - documentação de API, contribuição, segurança, licenciamento e release em `docs/open-source/`.
 - API de classificação neutra em idioma, com rótulos pt-BR mantidos somente na Web;
 - política candidata de versionamento e CI de leitura/testes preparadas, sem etapa de publicação.
 - licença MIT na raiz, contribuição, segurança, marca e avisos de terceiros;
 - fontes WHO e JSONs derivados excluídos do Git, com download oficial e verificação de hash;
 - CI reproduz os dados localmente antes de verificar e construir a Web.
-- branch `codex/public-release` criada com um único commit, sem herdar o histórico que continha WHO Data;
+- branch `codex/public-release` mantém histórico público sem herdar commits que continham WHO Data;
 - auditoria `pnpm run audit:public` aprovada e protegendo conteúdo atual e histórico;
 - clone limpo confirmou download oficial, SHA-256 e geração dos 12 datasets locais.
 
@@ -71,3 +74,7 @@ dados, auditoria pública, `pnpm run verify`, `pnpm run build` e
 interface está disponível no Netlify. Publicar npm continua sendo uma ação
 separada. A release `v0.1.0` aponta para um commit aprovado pelo Core CI em
 Node.js 22 e 24.
+
+As curvas foram validadas localmente em 1440 px e 360 px, sem erros no console
+ou rolagem horizontal da página. Esta atualização ainda não foi implantada no
+Netlify.
