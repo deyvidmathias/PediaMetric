@@ -2,6 +2,16 @@
 
 Aplicação web de antropometria pediátrica baseada nas referências oficiais WHO Child Growth Standards 2006 e WHO Growth Reference 2007. O cálculo acontece localmente no navegador: não há conta, backend, telemetria clínica ou persistência automática das medidas informadas.
 
+**Aplicação publicada:** [pediametric.netlify.app](https://pediametric.netlify.app/)
+
+## Interface
+
+![Tela inicial do PediaMetric em desktop](./docs/screenshots/pediametric-desktop.png)
+
+<p align="center">
+  <img src="./docs/screenshots/pediametric-mobile.png" width="390" alt="Formulário do PediaMetric em dispositivo móvel">
+</p>
+
 ## Estrutura
 
 - **PediaMetric Core:** cálculos, idade, IMC, LMS, escores Z, percentis, classificações e plausibilidade. Não depende da interface nem de uma implementação concreta dos dados.

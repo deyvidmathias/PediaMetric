@@ -1,11 +1,11 @@
 # Estado atual
 
-Atualizado em: 2026-08-09.
+Atualizado em: 2026-08-10.
 
 ## Objetivo ativo
 
-Preparar todo o código original do **PediaMetric Web** e do **PediaMetric Core**
-para um repositório GitHub público, sem redistribuir WHO Data e sem publicar npm.
+Consolidar o **PediaMetric Web** publicado e manter o **PediaMetric Core** pronto
+para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco.
 
 ## Já disponível
 
@@ -14,7 +14,9 @@ para um repositório GitHub público, sem redistribuir WHO Data e sem publicar n
 - documentação de fontes, decisões clínicas e validação em `docs/anthropometry/`;
 - 29 testes automatizados aprovados antes deste fechamento;
 - direção visual aprovada e logo PediaMetric fornecida;
-- documentação operacional do produto criada.
+- documentação operacional do produto criada;
+- aplicação pública em `https://pediametric.netlify.app/`;
+- screenshots desktop e mobile versionados em `docs/screenshots/`.
 
 ## Concluído neste marco
 
@@ -28,10 +30,10 @@ para um repositório GitHub público, sem redistribuir WHO Data e sem publicar n
 
 ## Próximos marcos
 
-1. Concluir a revisão visual nas larguras-alvo e registrar o resultado.
-2. Habilitar Private Vulnerability Reporting após criar o repositório GitHub.
-3. Confirmar propriedade do escopo npm `@pediametric` e destino do repositório.
-4. Publicar somente mediante autorização explícita e checklist integralmente concluído.
+1. Manter a validação visual e funcional a cada alteração relevante da Web.
+2. Acompanhar o CI e os alertas de segurança do repositório público.
+3. Confirmar propriedade do escopo npm `@pediametric` antes de eventual publicação.
+4. Coletar feedback de usuários e preparar uma primeira release estável.
 
 ## Restrições
 
@@ -40,7 +42,7 @@ para um repositório GitHub público, sem redistribuir WHO Data e sem publicar n
 - cálculos e cortes clínicos não podem existir na interface;
 - dados digitados não saem do navegador nem são persistidos;
 - `docs/anthropometry/` permanece referência estável;
-- não publicar npm nem implantar o site sem autorização separada.
+- não publicar npm sem autorização separada.
 
 ## Preparação open source concluída
 
@@ -61,7 +63,8 @@ para um repositório GitHub público, sem redistribuir WHO Data e sem publicar n
 
 ## Gate do marco atual
 
-O marco técnico local foi concluído: preparação de dados, auditoria pública,
-`pnpm run verify`, `pnpm run build` e `pnpm run verify:core` passam, e o
-histórico público não contém arquivos WHO. Criar/enviar o repositório GitHub e
-publicar npm continuam sendo ações separadas.
+O marco técnico e a publicação inicial da Web foram concluídos: preparação de
+dados, auditoria pública, `pnpm run verify`, `pnpm run build` e
+`pnpm run verify:core` passam, o histórico público não contém arquivos WHO e a
+interface está disponível no Netlify. Publicar npm continua sendo uma ação
+separada.

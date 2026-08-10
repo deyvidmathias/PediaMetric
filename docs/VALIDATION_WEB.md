@@ -49,6 +49,16 @@ Realizar smoke test em 360, 390, 768, 1024 e 1440 px. Conferir cabeçalho, formu
 
 Capturas de referência devem ser atualizadas apenas quando a mudança visual for intencional.
 
+#### Registro visual — 2026-08-10
+
+- versão local e publicação em `https://pediametric.netlify.app/` carregadas sem erros ou avisos no console;
+- tela inicial conferida em 1440 × 1000 px;
+- formulário conferido em 390 × 844 px após a ação **Iniciar avaliação**;
+- referências salvas em `docs/screenshots/pediametric-desktop.png` e `docs/screenshots/pediametric-mobile.png`.
+
+Este registro é um smoke visual direcionado e não substitui a passagem completa
+em todas as larguras listadas acima nem a avaliação clínica de ponta a ponta.
+
 ### 6. Desempenho
 
 Metas iniciais de auditoria: desempenho e acessibilidade iguais ou superiores a 90 em ambiente controlado, LCP abaixo de 2,5 s e CLS abaixo de 0,1. Tratar como metas, não garantias universais. Conferir tamanho do bundle, carregamento sob demanda de dados/gráficos, ausência de trabalho contínuo e animações baseadas em `transform`/`opacity`.
