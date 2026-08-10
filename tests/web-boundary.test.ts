@@ -29,12 +29,15 @@ test("PediaMetric Web não usa rede ou persistência clínica", async () => {
 
 test("formulário destaca as medidas pediátricas principais e inicia deitado", async () => {
   const app = await readFile(appUrl, "utf8");
-  const mainHeadField = app.indexOf('<Field label="Perímetro cefálico" id="head"');
+  const primaryMeasures = app.match(/<div className="primary-measures">([\s\S]*?)<\/div>/)?.[1] ?? "";
   const optionalSection = app.indexOf('className="optional-toggle"');
 
   assert.match(app, /measurementPosition: "length"/);
   assert.match(app, /> Deitado<\/button>/);
-  assert.ok(mainHeadField >= 0 && mainHeadField < optionalSection);
+  assert.match(primaryMeasures, /label="Peso"/);
+  assert.match(primaryMeasures, /label="Comprimento \/ altura"/);
+  assert.match(primaryMeasures, /label="Perímetro cefálico"/);
+  assert.ok(app.indexOf('className="primary-measures"') < optionalSection);
   assert.match(app, /className="sphere-logo"/);
   assert.doesNotMatch(app, /<strong>WHO<\/strong>/);
 });

@@ -601,12 +601,11 @@ export function App() {
                         <div><h3>Medidas atuais</h3><p>Use as medidas obtidas na data desta avaliação.</p></div>
                       </div>
 
-                      <div className="two-columns">
+                      <div className="primary-measures">
                         <Field label="Peso" id="weight" type="number" inputMode="decimal" min="0" step="0.01" placeholder="Ex.: 12,45" value={form.weightKg} onChange={(event) => update("weightKg", event.target.value)} unit="kg" />
                         <Field label="Comprimento / altura" id="stature" type="number" inputMode="decimal" min="0" step="0.1" placeholder="Ex.: 89,3" value={form.statureCm} onChange={(event) => update("statureCm", event.target.value)} unit="cm" />
+                        <Field label="Perímetro cefálico" id="head" type="number" inputMode="decimal" min="0" step="0.1" placeholder="Ex.: 47,5" value={form.headCircumferenceCm} onChange={(event) => update("headCircumferenceCm", event.target.value)} unit="cm" />
                       </div>
-
-                      <Field label="Perímetro cefálico" id="head" type="number" inputMode="decimal" min="0" step="0.1" placeholder="Ex.: 47,5" value={form.headCircumferenceCm} onChange={(event) => update("headCircumferenceCm", event.target.value)} unit="cm" />
 
                       <fieldset className="field-group">
                         <legend>Como a estatura foi medida?</legend>

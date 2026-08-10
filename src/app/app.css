@@ -798,6 +798,12 @@ button.progress-step {
   gap: 15px;
 }
 
+.primary-measures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .field {
   margin-bottom: 20px;
   display: block;
@@ -2218,7 +2224,8 @@ footer > span:last-child {
     padding: 25px 20px 26px;
   }
 
-  .two-columns {
+  .two-columns,
+  .primary-measures {
     grid-template-columns: 1fr;
     gap: 0;
   }

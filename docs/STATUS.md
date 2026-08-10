@@ -31,7 +31,7 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 7. Logo, identidade tecnológica, movimentos e layouts responsivos implementados.
 8. Gráficos de peso, comprimento-altura, perímetro cefálico e IMC com curvas de `Z=-3` a `Z=+3` e marcador da criança.
 9. Perímetro cefálico após 60 meses retorna indisponibilidade explícita em vez de desaparecer silenciosamente.
-10. Medidas principais exibem perímetro cefálico, iniciam com posição deitada e o núcleo visual usa a logo oficial.
+10. Peso, comprimento/altura e perímetro cefálico compartilham a grade de medidas principais; a posição inicia deitada e o núcleo visual usa a logo oficial.
 
 ## Próximos marcos
 
