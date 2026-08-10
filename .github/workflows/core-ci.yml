@@ -2,25 +2,8 @@ name: Core CI
 
 on:
   push:
-    paths:
-      - ".github/workflows/core-ci.yml"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "packages/core/**"
-      - "scripts/**"
-      - "src/features/anthropometry/**"
-      - "tests/**"
-      - "tsconfig*.json"
   pull_request:
-    paths:
-      - ".github/workflows/core-ci.yml"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "packages/core/**"
-      - "scripts/**"
-      - "src/features/anthropometry/**"
-      - "tests/**"
-      - "tsconfig*.json"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -37,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [20, 22, 24]
+        node: [22, 24]
 
     steps:
       - name: Check out source
