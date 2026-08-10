@@ -1,0 +1,51 @@
+{
+  "name": "@pediametric/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Framework-independent TypeScript primitives for pediatric anthropometry.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "README.pt-BR.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "anthropometry",
+    "pediatrics",
+    "growth",
+    "z-score",
+    "percentile",
+    "lms",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
+    }
+  },
+  "main": "./dist/core.js",
+  "types": "./dist/core.d.ts",
+  "scripts": {
+    "build": "tsc -p ../../tsconfig.core.json && node ./scripts/rewrite-declaration-imports.mjs",
+    "smoke": "node ./scripts/smoke.mjs",
+    "api:snapshot:check": "node ./scripts/check-public-api.mjs",
+    "inspect": "node ./scripts/inspect-package.mjs",
+    "pack:check": "npm pack --dry-run --json --cache ../../.tmp/npm-core-cache",
+    "verify": "pnpm run build && pnpm run smoke && pnpm run api:snapshot:check && pnpm run inspect && pnpm run pack:check"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

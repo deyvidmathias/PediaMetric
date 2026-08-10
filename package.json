@@ -1,0 +1,39 @@
+{
+  "name": "pediametric-web",
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.16.0",
+  "private": true,
+  "type": "module",
+  "description": "PediaMetric: avaliação antropométrica pediátrica local baseada em WHO 2006 e WHO 2007",
+  "scripts": {
+    "audit:public": "node scripts/audit_public_repo.mjs",
+    "data:download": "node scripts/run_python.mjs scripts/download_who_sources.py",
+    "data:generate": "node scripts/run_python.mjs scripts/import_who_data.py",
+    "data:prepare": "pnpm run data:download && pnpm run data:generate",
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "build:core": "pnpm --dir packages/core run build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "verify": "tsc -p tsconfig.json --noEmit && node --test tests/*.test.ts",
+    "verify:core": "pnpm --dir packages/core run verify"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.0.5",
+    "typescript": "5.9.3",
+    "vite": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^1.30.0",
+    "motion": "^13.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}

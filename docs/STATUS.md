@@ -1,0 +1,63 @@
+# Estado atual
+
+Atualizado em: 2026-08-09.
+
+## Objetivo ativo
+
+Preparar todo o código original do **PediaMetric Web** e do **PediaMetric Core**
+para um repositório GitHub público, sem redistribuir WHO Data e sem publicar npm.
+
+## Já disponível
+
+- motor TypeScript puro com idade, IMC, LMS, Z-score, percentil, classificações e plausibilidade;
+- referências WHO 2006 e 2007 baixadas sob demanda, manifesto e importação local reproduzível;
+- documentação de fontes, decisões clínicas e validação em `docs/anthropometry/`;
+- 29 testes automatizados aprovados antes deste fechamento;
+- direção visual aprovada e logo PediaMetric fornecida;
+- documentação operacional do produto criada.
+
+## Concluído neste marco
+
+1. Core desacoplado da implementação concreta de WHO Data por `LmsDatasetProvider`.
+2. Fachada pública simples preservada e entrada `core.ts` criada para futura extração.
+3. Fronteiras Core/Data/Web protegidas por testes automatizados.
+4. Aplicação React/Vite criada sem backend, persistência ou recursos externos.
+5. Fluxo `Dados → Medidas → Resultados`, medidas complementares e alertas integrados.
+6. Resultados e mapa visual de escores Z consumindo exclusivamente a API pública.
+7. Logo, identidade tecnológica, movimentos e layouts responsivos implementados.
+
+## Próximos marcos
+
+1. Concluir a revisão visual nas larguras-alvo e registrar o resultado.
+2. Habilitar Private Vulnerability Reporting após criar o repositório GitHub.
+3. Confirmar propriedade do escopo npm `@pediametric` e destino do repositório.
+4. Publicar somente mediante autorização explícita e checklist integralmente concluído.
+
+## Restrições
+
+- prioridade é a Web; a preparação open source permanece local, pequena e sem transformar o projeto em monorepo;
+- não mover arquivos sem necessidade funcional;
+- cálculos e cortes clínicos não podem existir na interface;
+- dados digitados não saem do navegador nem são persistidos;
+- `docs/anthropometry/` permanece referência estável;
+- não publicar npm nem implantar o site sem autorização separada.
+
+## Preparação open source concluída
+
+- pacote local `@pediametric/core@0.1.0`, ESM, tipado, sem dependências e com `private: true`;
+- licença MIT limitada ao código e documentação do pacote;
+- build a partir da fonte canônica, sem cópia de código;
+- smoke test por self-import e inspeção automática contra Web, rede e WHO Data;
+- dry-run com 25 entradas, 11.785 bytes compactados e nenhum JSON/dataset;
+- documentação de API, contribuição, segurança, licenciamento e release em `docs/open-source/`.
+- API de classificação neutra em idioma, com rótulos pt-BR mantidos somente na Web;
+- política candidata de versionamento e CI de leitura/testes preparadas, sem etapa de publicação.
+- licença MIT na raiz, contribuição, segurança, marca e avisos de terceiros;
+- fontes WHO e JSONs derivados excluídos do Git, com download oficial e verificação de hash;
+- CI reproduz os dados localmente antes de verificar e construir a Web.
+
+## Gate do marco atual
+
+O marco termina quando a preparação de dados, `pnpm run verify`, `pnpm run build`
+e `pnpm run verify:core` passam e o histórico público não contém arquivos WHO.
+Criar/enviar o repositório GitHub e publicar npm continuam sendo ações separadas.

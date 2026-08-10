@@ -1,0 +1,87 @@
+name: Core CI
+
+on:
+  push:
+    paths:
+      - ".github/workflows/core-ci.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "packages/core/**"
+      - "scripts/**"
+      - "src/features/anthropometry/**"
+      - "tests/**"
+      - "tsconfig*.json"
+  pull_request:
+    paths:
+      - ".github/workflows/core-ci.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "packages/core/**"
+      - "scripts/**"
+      - "src/features/anthropometry/**"
+      - "tests/**"
+      - "tsconfig*.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: core-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit public repository contents
+        run: pnpm run audit:public
+
+      - name: Verify standalone Core package
+        run: pnpm run verify:core
+
+      - name: Set up Python for WHO data preparation
+        if: matrix.node == 24
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements-import.txt
+
+      - name: Install data import dependency
+        if: matrix.node == 24
+        run: python -m pip install -r scripts/requirements-import.txt
+
+      - name: Prepare locally generated WHO datasets
+        if: matrix.node == 24
+        run: pnpm run data:prepare
+
+      - name: Verify repository boundaries and Web consumer
+        if: matrix.node == 24
+        run: pnpm run verify
+
+      - name: Build Web consumer
+        if: matrix.node == 24
+        run: pnpm run build

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
+    "rootDir": "src/features/anthropometry",
+    "outDir": "packages/core/dist",
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/features/anthropometry/core.ts",
+    "src/features/anthropometry/types.ts",
+    "src/features/anthropometry/engine/**/*.ts"
+  ]
+}

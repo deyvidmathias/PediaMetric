@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+.tmp/
+.venv/
+*.log
+
+# Third-party WHO inputs and generated datasets are prepared locally.
+vendor/sources/*
+!vendor/sources/.gitkeep
+src/features/anthropometry/data/generated/
