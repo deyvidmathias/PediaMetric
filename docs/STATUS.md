@@ -12,12 +12,12 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 - motor TypeScript puro com idade, IMC, LMS, Z-score, percentil, classificações e plausibilidade;
 - referências WHO 2006 e 2007 baixadas sob demanda, manifesto e importação local reproduzível;
 - documentação de fontes, decisões clínicas e validação em `docs/anthropometry/`;
-- 34 testes automatizados aprovados neste marco;
+- 35 testes automatizados aprovados neste marco;
 - direção visual aprovada e logo PediaMetric fornecida;
 - documentação operacional do produto criada;
 - aplicação pública em `https://pediametric.netlify.app/`;
 - screenshots desktop, mobile e das curvas versionados em `docs/screenshots/`;
-- release pública `v0.1.0` criada no GitHub;
+- release pública `v0.2.0` criada no GitHub;
 - Core CI aprovado em Node.js 22 e 24.
 
 ## Concluído neste marco
@@ -31,6 +31,7 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 7. Logo, identidade tecnológica, movimentos e layouts responsivos implementados.
 8. Gráficos de peso, comprimento-altura, perímetro cefálico e IMC com curvas de `Z=-3` a `Z=+3` e marcador da criança.
 9. Perímetro cefálico após 60 meses retorna indisponibilidade explícita em vez de desaparecer silenciosamente.
+10. Medidas principais exibem perímetro cefálico, iniciam com posição deitada e o núcleo visual usa a logo oficial.
 
 ## Próximos marcos
 
@@ -38,7 +39,7 @@ para futura extração, sem redistribuir WHO Data e sem publicar npm neste marco
 2. Acompanhar o CI e os alertas de segurança do repositório público.
 3. Confirmar propriedade do escopo npm `@pediametric` antes de eventual publicação.
 4. Coletar feedback de usuários para orientar os próximos marcos.
-5. Publicar a atualização dos gráficos no GitHub e no Netlify somente após autorização explícita.
+5. Publicar os ajustes visuais posteriores no GitHub e no Netlify somente após autorização explícita.
 
 ## Restrições
 
@@ -72,7 +73,7 @@ O marco técnico e a publicação inicial da Web foram concluídos: preparação
 dados, auditoria pública, `pnpm run verify`, `pnpm run build` e
 `pnpm run verify:core` passam, o histórico público não contém arquivos WHO e a
 interface está disponível no Netlify. Publicar npm continua sendo uma ação
-separada. A release `v0.1.0` aponta para um commit aprovado pelo Core CI em
+separada. A release `v0.2.0` aponta para um commit aprovado pelo Core CI em
 Node.js 22 e 24.
 
 As curvas foram validadas localmente em 1440 px e 360 px, sem erros no console

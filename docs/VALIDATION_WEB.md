@@ -72,6 +72,16 @@ em todas as larguras listadas acima nem a avaliação clínica de ponta a ponta.
 O smoke confirma a apresentação e a integração local; a publicação do Netlify
 permanece fora deste marco até autorização explícita.
 
+#### Ajustes de medidas e marca — 2026-08-10
+
+- perímetro cefálico movido para as medidas principais, antes da área complementar;
+- posição de comprimento deitado confirmada como seleção inicial e após limpar a avaliação;
+- logo PNG oficial conferida no núcleo tecnológico do hero em desktop e 360 × 800 px;
+- contraste da marca ajustado sem alterar suas cores ou proporções;
+- largura de 360 px permaneceu sem rolagem horizontal e o console não registrou erros ou avisos;
+- auditoria pública, 35 testes automatizados e build de produção aprovados;
+- evidência visual salva em `docs/screenshots/pediametric-hero-logo.png`.
+
 ### 6. Desempenho
 
 Metas iniciais de auditoria: desempenho e acessibilidade iguais ou superiores a 90 em ambiente controlado, LCP abaixo de 2,5 s e CLS abaixo de 0,1. Tratar como metas, não garantias universais. Conferir tamanho do bundle, carregamento sob demanda de dados/gráficos, ausência de trabalho contínuo e animações baseadas em `transform`/`opacity`.

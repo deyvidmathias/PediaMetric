@@ -90,7 +90,7 @@ const EMPTY_FORM: FormState = {
   assessmentDate: new Date().toISOString().slice(0, 10),
   weightKg: "",
   statureCm: "",
-  measurementPosition: "height",
+  measurementPosition: "length",
   headCircumferenceCm: "",
   armCircumferenceCm: "",
   tricepsSkinfoldMm: "",
@@ -496,9 +496,9 @@ export function App() {
               <div className="sphere-ring sphere-ring-one" />
               <div className="sphere-ring sphere-ring-two" />
               <div className="sphere-center">
-                <Ruler size={34} />
-                <strong>WHO</strong>
-                <span>2006 · 2007</span>
+                <span className="sphere-logo" aria-hidden="true">
+                  <img src="/pediametric-logo.png" alt="" />
+                </span>
               </div>
               <span className="sphere-node node-one" />
               <span className="sphere-node node-two" />
@@ -606,10 +606,12 @@ export function App() {
                         <Field label="Comprimento / altura" id="stature" type="number" inputMode="decimal" min="0" step="0.1" placeholder="Ex.: 89,3" value={form.statureCm} onChange={(event) => update("statureCm", event.target.value)} unit="cm" />
                       </div>
 
+                      <Field label="Perímetro cefálico" id="head" type="number" inputMode="decimal" min="0" step="0.1" placeholder="Ex.: 47,5" value={form.headCircumferenceCm} onChange={(event) => update("headCircumferenceCm", event.target.value)} unit="cm" />
+
                       <fieldset className="field-group">
                         <legend>Como a estatura foi medida?</legend>
                         <div className="segmented segmented-icons">
-                          <button className={form.measurementPosition === "length" ? "selected" : ""} type="button" onClick={() => update("measurementPosition", "length")} aria-pressed={form.measurementPosition === "length"}><Baby size={16} /> Deitada</button>
+                          <button className={form.measurementPosition === "length" ? "selected" : ""} type="button" onClick={() => update("measurementPosition", "length")} aria-pressed={form.measurementPosition === "length"}><Baby size={16} /> Deitado</button>
                           <button className={form.measurementPosition === "height" ? "selected" : ""} type="button" onClick={() => update("measurementPosition", "height")} aria-pressed={form.measurementPosition === "height"}><Ruler size={16} /> Em pé</button>
                         </div>
                       </fieldset>
@@ -623,7 +625,6 @@ export function App() {
                         {showOptional ? (
                           <motion.div className="optional-fields" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
                             <div className="two-columns">
-                              <Field label="Perímetro cefálico" id="head" type="number" inputMode="decimal" min="0" step="0.1" value={form.headCircumferenceCm} onChange={(event) => update("headCircumferenceCm", event.target.value)} unit="cm" />
                               <Field label="Circunferência braquial" id="arm" type="number" inputMode="decimal" min="0" step="0.1" value={form.armCircumferenceCm} onChange={(event) => update("armCircumferenceCm", event.target.value)} unit="cm" />
                               <Field label="Prega tricipital" id="triceps" type="number" inputMode="decimal" min="0" step="0.1" value={form.tricepsSkinfoldMm} onChange={(event) => update("tricepsSkinfoldMm", event.target.value)} unit="mm" />
                               <Field label="Prega subescapular" id="subscapular" type="number" inputMode="decimal" min="0" step="0.1" value={form.subscapularSkinfoldMm} onChange={(event) => update("subscapularSkinfoldMm", event.target.value)} unit="mm" />
