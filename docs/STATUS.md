@@ -55,9 +55,13 @@ para um repositório GitHub público, sem redistribuir WHO Data e sem publicar n
 - licença MIT na raiz, contribuição, segurança, marca e avisos de terceiros;
 - fontes WHO e JSONs derivados excluídos do Git, com download oficial e verificação de hash;
 - CI reproduz os dados localmente antes de verificar e construir a Web.
+- branch `codex/public-release` criada com um único commit, sem herdar o histórico que continha WHO Data;
+- auditoria `pnpm run audit:public` aprovada e protegendo conteúdo atual e histórico;
+- clone limpo confirmou download oficial, SHA-256 e geração dos 12 datasets locais.
 
 ## Gate do marco atual
 
-O marco termina quando a preparação de dados, `pnpm run verify`, `pnpm run build`
-e `pnpm run verify:core` passam e o histórico público não contém arquivos WHO.
-Criar/enviar o repositório GitHub e publicar npm continuam sendo ações separadas.
+O marco técnico local foi concluído: preparação de dados, auditoria pública,
+`pnpm run verify`, `pnpm run build` e `pnpm run verify:core` passam, e o
+histórico público não contém arquivos WHO. Criar/enviar o repositório GitHub e
+publicar npm continuam sendo ações separadas.

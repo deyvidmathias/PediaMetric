@@ -50,7 +50,7 @@ Este checklist separa a publicação do código no GitHub de uma futura publica�
 
 - [ ] Um responsável revisou o conteúdo exato a publicar.
 - [x] GitHub e npm são tratados como autorizações separadas.
-- [ ] O histórico público foi criado sem arquivos WHO originais ou derivados.
+- [x] O histórico público foi criado sem arquivos WHO originais ou derivados.
 - [ ] Publicação de teste não contém WHO Data nem ativos da Web.
 - [ ] O comando final será executado somente após confirmação explícita.
 
